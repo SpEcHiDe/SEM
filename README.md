@@ -5,3 +5,6 @@ Smart Energy Meter : Internship Project at ICFOSS
    - Shrimadhav U K
    - Sachin Mathew Jose
    - Josekutty M J
+
+#### Server hosted at :
+   - http://spechide.unixssh.com/icfossiot/
