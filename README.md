@@ -1,5 +1,5 @@
-# SEM
-Smart Energy Meter : Internship Project at ICFOSS
+# SWM
+Smart Water Meter : Internship Project at ICFOSS
 
 #### Team Members :
    - Shrimadhav U K
