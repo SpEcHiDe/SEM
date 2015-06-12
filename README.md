@@ -7,4 +7,5 @@ Smart Water Meter : Internship Project at ICFOSS
    - Josekutty M J
 
 #### Server hosted at :
-   - http://spechide.unixssh.com/icfossiot/
+   - http://icfossiot.net46.net/
+
