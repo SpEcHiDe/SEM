@@ -1,8 +1,8 @@
 <?php
 //	include_once "config/database.php"
 
-//	$consumerno = $_POST['uid'];
-//	$passwd = $_POST['pwd'];
+	$consumerno = $_POST['name'];
+	$passwd = $_POST['password'];
 	
 	//conection: 
 	$conn = mysql_connect("localhost:3306","spechide","password;") or die("Error " . mysqli_error($link)); 	
