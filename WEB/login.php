@@ -18,6 +18,7 @@
     $row = mysql_fetch_row($query);
 
     if($row){
+      session_start();
       $_SESSION['name']=$consumerno;
       header('location:welcome.php');
     }
