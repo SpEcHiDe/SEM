@@ -1,26 +1,29 @@
 <?php
-//	include_once "config/database.php"
 
-	$consumerno = $_POST['name'];
-	$passwd = $_POST['password'];
+  if(isset($_POST['submit'])) {
+
+    $mysql_host = "mysql2.000webhost.com";
+    $mysql_database = "a7089677_iot";
+    $mysql_user = "a7089677_iot";
+    $mysql_password = "pASSword2014;";
+
+    $consumerno = $_POST['name'];
+    $passwd = $_POST['password'];
 	
-	//conection: 
-	$conn = mysql_connect("localhost:3306","spechide","password;") or die("Error " . mysqli_error($link)); 	
-//echo $conn;
-	mysql_select_db("spechide");	
+    $conn = mysql_connect($mysql_host,$mysql_user,$mysql_password) or die("error connecting " . mysqli_error($link)); 	
+    mysql_select_db($mysql_database);	
 
-	//consultation: 
+    $query = mysql_query("SELECT * FROM users WHERE USER_ID = '" . $consumerno . "' AND PASSWORD = '" . $passwd . "'") or die("error executing " . mysql_error($conn));
 
-	$query = "DESC gcm_users"; 
+    $row = mysql_fetch_row($query);
 
-	//execute the query. 
-
-	$result = mysql_query($query,$conn) or die("Error in the consult.." . mysql_error($conn));
-
-	//display information: 
-
-	while($row = mysql_fetch_array($result)) { 
-		 echo $row["name"] . "<br>"; 
-	} 
-
+    if($row){
+      $_SESSION['name']=$consumerno;
+      header('location:welcome.php');
+    }
+    else{
+      echo 'You entered an incorrect username or password';
+    }    
+ 
+  }
 ?>

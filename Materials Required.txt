@@ -1,0 +1,15 @@
+1. Flow Meter - one
+2. Atmega 328 Controller - one
+3. 6V - 1A Transformer - one
+4. 5V Regulator - one
+5. 5V - 1A Fuse - one
+6. 6V Lithium Ion Battery - one
+7. LT3796 - one
+8. GPRS Module - one
+9. Bread board - one
+10. Perf Board - one
+11. Connecting Wires
+12. 1N4001 - four
+13. Capacitor 420 micro farad 16 V - two
+14. Resistor 1 kiloohm - ten
+15. Resistor 10 kiloohm - ten
