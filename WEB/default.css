@@ -451,7 +451,7 @@
 		overflow: hidden;
 		width: 1000px;
 		padding: 6em 100px 0em 100px;
-		text-align: center;
+		/*text-align: center;*/
 	}
 	
 	#welcome .content

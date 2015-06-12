@@ -1,0 +1,20 @@
+{
+	"version": "0.1",
+	"name": "Smart Water Meter",
+	"description": "",
+	"launch_path": "/index.html",
+	"icons": {
+		"16": "/images/icons/appicon-16.png",
+		"48": "/images/icons/appicon-48.png",
+		"128": "/images/icons/appicon-128.png"
+	},
+	"developer": {
+		"name": "SpEcHiDe",
+		"url": "http://icfossiot.net46.net"
+	},
+	"installs_allowed_from": ["*"],
+	"default_locale": "en",
+	"permissions": {
+		"systemXHR": {}
+	}
+}
