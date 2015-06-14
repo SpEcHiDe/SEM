@@ -38,7 +38,7 @@ Released   : 20140322
 			<ul>
 				<li><a href="usage.php" accesskey="1" title="">Statistics</a></li>
 				
-				<li><a href="index.html" accesskey="3" title="">Home</a></li>
+				<li><a href="index.php" accesskey="3" title="">Home</a></li>
 				
 				<li class="active"><a href="status.php" accesskey="5" title="">Status</a></li>
 			</ul>
@@ -55,18 +55,66 @@ Released   : 20140322
 			<div class="title">
 				<h2>flow meter</h2>
 			</div>
+			<?php
+				
+				if(isset($_SESSION['name'])){
+					$uid = $_SESSION['name'];
+					if($uid){				// admin session id is zero
+						echo "logged in as " . $uid . "with usage 0 litres";
+					}
+					else{
+						echo "logged in as ADMINISTRATOR. can see all usages";
+					}
+				}
+				else{
+					echo "not logged in.";
+				}
+			?>
+			
 		<!--	<p>Nullam non wisi a sem semper eleifend. Donec mattis libero eget urna. Duis pretium velit ac suscipit mauris. Proin eu wisi suscipit nulla suscipit interdum.</p>
 			<a href="#" class="button">Learn More</a> --> </div>
 		<div id="tbox2">
 			<div class="title">
 				<h2>microcontroller</h2>
 			</div>
+			<?php
+				
+				if(isset($_SESSION['name'])){
+					$uid = $_SESSION['name'];
+					if($uid){				// admin session id is zero
+						echo "logged in as " . $uid . "with usage 0 litres";
+					}
+					else{
+						echo "logged in as ADMINISTRATOR. can see all usages";
+					}
+				}
+				else{
+					echo "not logged in.";
+				}
+			?>
+			
 		<!--	<p>Proin eu wisi suscipit nulla suscipit interdum. Nullam non wisi a sem semper suscipit eleifend. Donec mattis libero eget urna. Duis  velit ac mauris.</p>
 			<a href="#" class="button">Learn More</a> --> </div>
 		<div id="tbox3">
 			<div class="title">
 				<h2>GPRS module</h2>
 			</div>
+			<?php
+				
+				if(isset($_SESSION['name'])){
+					$uid = $_SESSION['name'];
+					if($uid){				// admin session id is zero
+						echo "logged in as " . $uid . "with usage 0 litres";
+					}
+					else{
+						echo "logged in as ADMINISTRATOR. can see all usages";
+					}
+				}
+				else{
+					echo "not logged in.";
+				}
+			?>
+			
 		<!--	<p>Donec mattis libero eget urna. Duis pretium velit ac mauris. Proin eu wisi suscipit nulla suscipit interdum. Nullam non wisi a sem suscipit  eleifend.</p>
 			<a href="#" class="button">Learn More</a> --> </div>
 	</div>

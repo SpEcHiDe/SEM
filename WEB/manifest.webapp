@@ -2,7 +2,7 @@
 	"version": "0.1",
 	"name": "Smart Water Meter",
 	"description": "",
-	"launch_path": "/index.html",
+	"launch_path": "/index.php",
 	"icons": {
 		"16": "/images/icons/appicon-16.png",
 		"48": "/images/icons/appicon-48.png",

@@ -34,7 +34,7 @@ Released   : 20140322
 			<ul>
 				<li><a href="usage.php" accesskey="1" title="">Statistics</a></li>
 				
-				<li class="active"><a href="index.html" accesskey="3" title="">Home</a></li>
+				<li class="active"><a href="index.php" accesskey="3" title="">Home</a></li>
 				
 				<li><a href="status.php" accesskey="5" title="">Status</a></li>
 			</ul>
@@ -51,16 +51,65 @@ Released   : 20140322
 		</div> -->
 		
 		
-		<form id="form" name="form" action="login.php" method="post">
+		
+		
+		<?php
+
+  if(isset($_POST['submit'])) {
+
+    $mysql_host = "mysql2.000webhost.com";
+    $mysql_database = "a7089677_iot";
+    $mysql_user = "a7089677_iot";
+    $mysql_password = "pASSword2014;";
+
+    $consumerno = $_POST['name'];
+    $passwd = $_POST['password'];
 	
-		<label id="user" for="name">USER ID</label>
-		<input type="text" name="name" id="name" placeholder="Username" required/><br /><br />
-		<label id="pass" for="password">PASSWORD</label>
-		<input type="password" name="password" id="password" placeholder="Password" required /><br /><br />
-		<input type="submit" id="submit" name="submit" value="LogIn"/><br />
+    $conn = mysql_connect($mysql_host,$mysql_user,$mysql_password) or die("error connecting " . mysqli_error($link)); 	
+    mysql_select_db($mysql_database);	
+
+    $query = mysql_query("SELECT * FROM users WHERE USER_ID = '" . $consumerno . "' AND PASSWORD = '" . $passwd . "'") or die("error executing " . mysql_error($conn));
+
+    $row = mysql_fetch_row($query);
+
+    if($row[0] == 0){
+      
+      $_SESSION['name']=$consumerno;
+      header('location:status.php');
+    }
+    else if(($row[0] != NULL) && ($row[1] != NULL)){
+		$_SESSION['name']=$consumerno;
+      header('location:usage.php');
+	}
+    else{
+     echo 'You entered an incorrect username or password';
+      echo "<form id=\"form\" name=\"form\" method=\"post\">";
 	
-</form>
-	</div>
+		echo "<label id=\"user\" for=\"name\">USER ID</label>";
+		echo "<input type=\"text\" name=\"name\" id=\"name\" placeholder=\"Username\" required/><br /><br />";
+		echo "<label id=\"pass\" for=\"password\">PASSWORD</label>";
+		echo "<input type=\"password\" name=\"password\" id=\"password\" placeholder=\"Password\" required /><br /><br />";
+		echo "<input type=\"submit\" id=\"submit\" name=\"submit\" value=\"LogIn\"/><br />";
+	
+		echo "</form>";
+    }    
+ 
+  }
+  else{
+	  echo "<form id=\"form\" name=\"form\" method=\"post\">";
+	
+		echo "<label id=\"user\" for=\"name\">USER ID</label>";
+		echo "<input type=\"text\" name=\"name\" id=\"name\" placeholder=\"Username\" required/><br /><br />";
+		echo "<label id=\"pass\" for=\"password\">PASSWORD</label>";
+		echo "<input type=\"password\" name=\"password\" id=\"password\" placeholder=\"Password\" required /><br /><br />";
+		echo "<input type=\"submit\" id=\"submit\" name=\"submit\" value=\"LogIn\"/><br />";
+	
+		echo "</form>";
+  }
+?>
+
+		
+</div>
 	
 	
 </div>

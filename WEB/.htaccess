@@ -1,0 +1,4 @@
+# Do not remove this line, otherwise mod_rewrite rules will stop working
+RewriteBase /
+AddType application/x-web-app-manifest+json .webapp
+
