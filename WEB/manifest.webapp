@@ -15,7 +15,7 @@
 	"installs_allowed_from": ["*"],
 	"default_locale": "en",
 	"permissions": {
-		"systemXHR": {}
+		"systemXHR": {},
 		"desktop-notification": {
 			"description": "Needed for creating system notifications."
 		}
