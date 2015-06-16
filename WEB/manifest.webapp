@@ -1,12 +1,12 @@
 {
 	"version": "0.1",
 	"name": "Smart Water Meter",
-	"description": "",
+	"description": "an application to monitor the water usage of a household remotely",
 	"launch_path": "/index.php",
 	"icons": {
-		"16": "/images/icons/appicon-16.png",
-		"48": "/images/icons/appicon-48.png",
-		"128": "/images/icons/appicon-128.png"
+		"16": "/fonts/icons/appicon-16.png",
+		"48": "/fonts/icons/appicon-48.png",
+		"128": "/fonts/icons/appicon-128.png"
 	},
 	"developer": {
 		"name": "SpEcHiDe",
