@@ -13,3 +13,24 @@
 13. Capacitor 420 micro farad 16 V - two
 14. Resistor 1 kiloohm - ten
 15. Resistor 10 kiloohm - ten
+
+
+== COST FORM ==
+
+[Google Form](https://docs.google.com/a/nitc.ac.in/forms/d/1doXqYHrXGREtbYK9SKtxgRwf_eXof9IxT3mbNKAG5As/viewform?c=0&w=1)
+
+1. 6V - 1A Transformer - one - ₹ 150
+2. 5V Regulator - one - ₹ 10
+3. 5V - 1A Fuse - one - ₹ 10
+4. Bread board - one - ₹ 90
+5. Perf Board - one - ₹ 60
+6. Connecting Wires - ₹ 30
+7. 1N4001 - four - ₹ 1
+8. Capacitor 420 micro farad 16 V - two - ₹ 10
+9. Resistor 1 kiloohm - ten - ₹ 5
+10. Resistor 10 kiloohm - ten - ₹ 5
+
+1. Flow Meter - one - ₹ 350
+2. 6V Lithium Ion Battery - one - ₹ 150
+3. LT3796 - one - ₹ 200
+4. GPRS Module - one - ₹ 1500
