@@ -1,0 +1,129 @@
+body{
+	color: #4c4a4a;
+}
+
+a,
+a:link,
+a:visited {
+	color: #009fd9;;
+	font-weight: 700;
+}
+
+a:hover,
+a:active {
+	color: #006599;;
+}
+
+/* NAV MENU */
+
+ul.navmenu li a,
+ul.navmenu li a:link,
+ul.navmenu li a:visited {
+	color: #7B868E;
+	font-weight: 400;
+}
+
+ul.navmenu li a:hover,
+ul.navmenu li a:active {
+	color: #474F55;
+}
+
+
+/* expanded nav menu */
+@media (min-width: 61rem) {
+
+	ul.navmenu li a,
+	ul.navmenu li a:link,
+	ul.navmenu li a:visited {
+		border-bottom-style: solid;
+		border-bottom-size: 0.25rem;
+		border-bottom-color: white;
+	}
+
+	ul.navmenu li a:hover {
+		border-bottom-color:#009fd9 ;
+	}
+
+	ul.navmenu li a:active,
+	ul.navmenu li a.active {
+		border-bottom-color: #006599;
+	}
+
+
+
+}
+
+
+/* collapsed nav menu */
+@media (max-width: 61rem) {
+
+	.navicon.closed {
+		background-color: #E1EEF8;
+		color: #7B868E;
+		border-bottom: 0.25rem solid #ACC5D9;
+	}
+
+	.navicon.open {
+		color: #fff;
+		background-color: #cc0033;
+		border-bottom: 0.25rem solid #ACC5D9;
+			}
+
+	ul.navmenu {
+		background-color: #E1EEF8;
+		border: 0.0625rem solid #ACC5D9;
+		border-bottom: 0;
+	}
+
+	ul.navmenu li a,
+	ul.navmenu li a:link,
+	ul.navmenu li a:visited {
+		border-bottom: 0.0625rem solid #ACC5D9;
+	}
+
+	/* collapsed nav child menu */
+	ul.navmenu li ul {
+		background-color: #EBF5FC;
+	}
+
+}
+
+/*bannerarea */
+
+.bannerarea {
+	/*background-color: #cc0033;*/
+	background-color: #6B8E23;
+	color: white;
+}
+
+
+/* Workshops */
+
+.point h2 {
+	/*color: #cc0033; */
+}
+
+/* doesn't quite look good. :D */
+
+/* footer */
+
+.footer {
+	background-color: white;
+	color: black;
+}
+
+.copyright {
+	font-size: 1rem;
+}
+
+.icon a,
+.icon a:link,
+.icon a:visited,
+.icon a:hover,
+.icon a:active {
+	color: white;
+}
+
+header.wrap {
+	padding: 0;
+}
