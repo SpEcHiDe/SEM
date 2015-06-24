@@ -73,16 +73,18 @@ session_start();
         <!--Adding info about workshops! -->
 
         <div class="point">
-            <h2><i class="fa fa-code"></i>flow meter</h2>
+            <h2><i class="fa fa-code"></i>smart meter module</h2>
             <?php
 				
 				if(isset($_SESSION['name'])){
 					$uid = $_SESSION['name'];
 					if($uid){				// admin session id is zero
-						echo "logged in as " . $uid . "with usage 0 litres";
+						//echo "logged in as " . $uid . "with usage 0 litres";
+						echo "here you can see the status of the machine";
 					}
 					else{
-						echo "logged in as ADMINISTRATOR. can see all usages";
+						//echo "logged in as ADMINISTRATOR. can see all usages";
+						echo "STATUS : OK";
 					}
 				}
 				else{
@@ -90,48 +92,6 @@ session_start();
 				}
 			?>
         </div>
-
-
-         <div class="point">
-            <h2><i class="fa fa-code"></i>microcontroller</h2>
-			<?php
-				
-				if(isset($_SESSION['name'])){
-					$uid = $_SESSION['name'];
-					if($uid){				// admin session id is zero
-						echo "logged in as " . $uid . "with usage 0 litres";
-					}
-					else{
-						echo "logged in as ADMINISTRATOR. can see all usages";
-					}
-				}
-				else{
-					echo "not logged in.";
-				}
-			?>
-        </div>
-
-
-
-         <div class="point">
-            <h2><i class="fa fa-code"></i>GPRS Module</h2>
-			<?php
-				
-				if(isset($_SESSION['name'])){
-					$uid = $_SESSION['name'];
-					if($uid){				// admin session id is zero
-						echo "logged in as " . $uid . "with usage 0 litres";
-					}
-					else{
-						echo "logged in as ADMINISTRATOR. can see all usages";
-					}
-				}
-				else{
-					echo "not logged in.";
-				}
-			?>
-        </div>
-
 
         		
 	</main>

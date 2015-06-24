@@ -79,10 +79,31 @@ session_start();
 				if(isset($_SESSION['name'])){
 					$uid = $_SESSION['name'];
 					if($uid){				// admin session id is zero
-						echo "logged in as " . $uid . "with usage 0 litres";
+						//echo "logged in as " . $uid . "with usage 0 litres";
+						
+						$mysql_host = "mysql2.000webhost.com";
+						$mysql_database = "a7089677_iot";
+						$mysql_user = "a7089677_iot";
+						$mysql_password = "pASSword2014;";
+						
+						$conn = mysql_connect($mysql_host,$mysql_user,$mysql_password) or die("error connecting " . mysqli_error($link)); 	
+						mysql_select_db($mysql_database);	
+
+						$query = mysql_query("SELECT * FROM data WHERE CONSNO = '" . $uid . "' ORDER BY DATE DESC") or die("error executing " . mysql_error($conn));
+
+						$row = mysql_fetch_row($query);
+						if($row){
+							echo $row[2] . "milli litres";
+						}
+						else{
+							echo "no usage yet";
+						}
+							
+						
 					}
 					else{
-						echo "logged in as ADMINISTRATOR. can see all usages";
+						//echo "logged in as ADMINISTRATOR. can see all usages";
+						echo "administrator area";
 					}
 				}
 				else{
@@ -99,10 +120,12 @@ session_start();
 				if(isset($_SESSION['name'])){
 					$uid = $_SESSION['name'];
 					if($uid){				// admin session id is zero
-						echo "logged in as " . $uid . "with usage 0 litres";
+						//echo "logged in as " . $uid . "with usage 0 litres";
+						echo "usage * cost per litre = total cost";
 					}
 					else{
-						echo "logged in as ADMINISTRATOR. can see all usages";
+						//echo "logged in as ADMINISTRATOR. can see all usages";
+						echo "administrator area";
 					}
 				}
 				else{
@@ -120,10 +143,12 @@ session_start();
 				if(isset($_SESSION['name'])){
 					$uid = $_SESSION['name'];
 					if($uid){				// admin session id is zero
-						echo "logged in as " . $uid . "with usage 0 litres";
+						//echo "logged in as " . $uid . "with usage 0 litres";
+						echo "graph not implemented";
 					}
 					else{
-						echo "logged in as ADMINISTRATOR. can see all usages";
+						//echo "logged in as ADMINISTRATOR. can see all usages";
+						echo "administrator area";
 					}
 				}
 				else{

@@ -5,14 +5,17 @@
 		$mysql_user = "a7089677_iot";
 		$mysql_password = "pASSword2014;";
         
-        $recv = $_POST['value'];
-        $consno = $_POST['uid'];
+        $recv = $_GET['value'];
+        $consno = $_GET['uid'];
+        
+        date_default_timezone_set('Asia/Calcutta');
+        $timestampnowdate = date('Y-m-d H:i:s T', time());
         
         try {
 			$conn = new PDO("mysql:host=$mysql_host;dbname=$mysql_database", $mysql_user, $mysql_password);
 			// set the PDO error mode to exception
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-			$sql = "INSERT INTO data (consno, consumption) VALUES ('".$consno."', '".$recv."')";
+			$sql = "INSERT INTO data (date, consno, consumption) VALUES ('".$timestampnowdate."', '".$consno."', '".$recv."')";
 			// use exec() because no results are returned
 			$conn->exec($sql);
 			echo "New record created successfully";
