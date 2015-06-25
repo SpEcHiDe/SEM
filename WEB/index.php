@@ -42,7 +42,18 @@ session_start();
             <ul class="navmenu" id="opennav">
                 
                 <li><a href="usage.php">Statistics</a></li>
-                <li><a href="index.php" class="active">Home</a></li>
+                
+                <?php
+					if(isset($_SESSION['name'])){
+						echo "<li><a href=\"logout.php\" class=\"active\">Log Out</a></li>";
+					}
+					else{
+						echo "<li><a href=\"index.php\" class=\"active\">Log In</a></li>";
+					}
+                
+                
+                ?>
+                
                 <li><a href="status.php">Status</a></li>
                 
             </ul>

@@ -41,7 +41,16 @@ session_start();
             <ul class="navmenu" id="opennav">
                 
                 <li><a href="usage.php">Statistics</a></li>
-                <li><a href="index.php">Home</a></li>
+                <?php
+					if(isset($_SESSION['name'])){
+						echo "<li><a href=\"logout.php\">Log Out</a></li>";
+					}
+					else{
+						echo "<li><a href=\"index.php\">Log In</a></li>";
+					}
+                
+                
+                ?>
                 <li><a href="status.php" class="active">Status</a></li>
                
             </ul>
@@ -80,7 +89,7 @@ session_start();
 					$uid = $_SESSION['name'];
 					if($uid){				// admin session id is zero
 						//echo "logged in as " . $uid . "with usage 0 litres";
-						echo "here you can see the status of the machine";
+						echo "Authentication ERR: Invalid user !";
 					}
 					else{
 						//echo "logged in as ADMINISTRATOR. can see all usages";
