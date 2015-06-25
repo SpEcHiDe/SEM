@@ -25,6 +25,48 @@ session_start();
 		
 		<script type="text/javascript" src="js/modernizr.js"> </script>
 		<script type="text/javascript" src="js/jquery.js"> </script>
+		<script type="text/javascript">
+		
+			<?php
+				
+				$mysql_host = "mysql2.000webhost.com";
+				$mysql_database = "a7089677_iot";
+				$mysql_user = "a7089677_iot";
+				$mysql_password = "pASSword2014;";
+				
+				$uid = $_SESSION['name'];
+				
+				$conn = mysql_connect($mysql_host,$mysql_user,$mysql_password) or die("error connecting " . mysqli_error($link)); 	
+				mysql_select_db($mysql_database);	
+				
+				$result = mysql_query("SELECT date,consumption from data WHERE consno = '" . $uid . "'") or die("error executing " . mysql_error($conn));
+				
+				$value=array();
+				while($r = mysql_fetch_assoc($result)) {
+					$year=$r['date'];
+					$sales=$r['consumption'];
+					//$expenses=$r['expenses'];
+					$val="[".$year.",".$sales."]";
+					array_push($value,$val );
+				}
+				$final_value = implode(",", $value);
+
+			?>
+			
+			function drawChart() {
+				var data = google.visualization.arrayToDataTable([
+					<?php echo $final_value?>
+				]);
+
+				var options = {
+					title: 'Usage Statistics'
+				};
+
+				var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+				chart.draw(data, options);
+			}
+			
+		</script>
 
 
 
@@ -153,7 +195,8 @@ session_start();
 					$uid = $_SESSION['name'];
 					if($uid){				// admin session id is zero
 						//echo "logged in as " . $uid . "with usage 0 litres";
-						echo "graph not implemented";
+						//echo "graph not implemented";
+						echo "<div id=\"chart_div\" style=\"width: 900px; height: 500px;\"></div>";
 					}
 					else{
 						//echo "logged in as ADMINISTRATOR. can see all usages";
