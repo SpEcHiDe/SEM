@@ -25,8 +25,19 @@ session_start();
 		
 		<script type="text/javascript" src="js/modernizr.js"> </script>
 		<script type="text/javascript" src="js/jquery.js"> </script>
+		
+		<!--Load the AJAX API-->
+		<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+		
 		<script type="text/javascript">
 		
+			// Load the Visualization API and the piechart package.
+			google.load('visualization', '1.0', {'packages':['corechart']});
+
+			// Set a callback to run when the Google Visualization API is loaded.
+			google.setOnLoadCallback(drawChart);
+
+			
 			<?php
 				
 				$mysql_host = "mysql2.000webhost.com";
@@ -41,12 +52,17 @@ session_start();
 				
 				$result = mysql_query("SELECT date,consumption from data WHERE consno = '" . $uid . "'") or die("error executing " . mysql_error($conn));
 				
+				$prevValue = 0;
+				
 				$value=array();
 				while($r = mysql_fetch_assoc($result)) {
-					$year=$r['date'];
-					$sales=$r['consumption'];
-					//$expenses=$r['expenses'];
-					$val="[".$year.",".$sales."]";
+					$datetime="'" . $r['date'] . "'";
+					$consumption=$r['consumption'];
+										
+					$curValue = $consumption - $prevValue;
+					$prevValue = $curValue;					
+					
+					$val="[".$datetime.",".$curValue."]";
 					array_push($value,$val );
 				}
 				$final_value = implode(",", $value);
@@ -54,10 +70,15 @@ session_start();
 			?>
 			
 			function drawChart() {
-				var data = google.visualization.arrayToDataTable([
+				// Create the data table.
+				var data = new google.visualization.DataTable();
+				data.addColumn('string', 'Date Time Stamp');
+				data.addColumn('number', 'Litres Consumed');
+				
+				data.addRows([
 					<?php echo $final_value?>
 				]);
-
+				
 				var options = {
 					title: 'Usage Statistics'
 				};
@@ -144,7 +165,7 @@ session_start();
 
 						$row = mysql_fetch_row($query);
 						if($row){
-							echo $row[2] . "milli litres";
+							echo $row[2] . " milli litres";
 						}
 						else{
 							echo "no usage yet";
@@ -196,7 +217,7 @@ session_start();
 					if($uid){				// admin session id is zero
 						//echo "logged in as " . $uid . "with usage 0 litres";
 						//echo "graph not implemented";
-						echo "<div id=\"chart_div\" style=\"width: 900px; height: 500px;\"></div>";
+						echo "<div id=\"chart_div\" style=\"width: 150%; height: 150%;\"></div>";
 					}
 					else{
 						//echo "logged in as ADMINISTRATOR. can see all usages";
