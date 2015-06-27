@@ -1,7 +1,7 @@
 {
 	"version": "0.1",
-	"name": "Smart Water Meter",
-	"description": "an application to monitor the water usage of a household remotely",
+	"name": "SWM",
+	"description": "Smart Water Meter (SWM) is an application to monitor the water usage of a household remotely",
 	"launch_path": "/index.php",
 	"icons": {
 		"16": "/fonts/icons/appicon-16.png",
@@ -15,7 +15,9 @@
 	"installs_allowed_from": ["*"],
 	"default_locale": "en",
 	"permissions": {
-		"systemXHR": {},
+		"systemXHR": {
+			"description": "Required for Asynchronous JavaScript and XML calls in application."
+		},
 		"desktop-notification": {
 			"description": "Needed for creating system notifications."
 		}
