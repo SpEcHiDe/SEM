@@ -50,7 +50,7 @@ session_start();
 				$conn = mysql_connect($mysql_host,$mysql_user,$mysql_password) or die("error connecting " . mysqli_error($link)); 	
 				mysql_select_db($mysql_database);	
 				
-				$result = mysql_query("SELECT date,consumption from data WHERE consno = '" . $uid . "'") or die("error executing " . mysql_error($conn));
+				$result = mysql_query("SELECT date,consumption from data WHERE consno = '" . $uid . "' ORDER BY date ASC") or die("error executing " . mysql_error($conn));
 				
 				$prevValue = 0;
 				
