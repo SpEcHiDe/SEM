@@ -1,5 +1,7 @@
+
+
 body{
-	color: #4c4a4a;
+	color: "blue";
 }
 
 a,
@@ -108,7 +110,7 @@ ul.navmenu li a:active {
 /* footer */
 
 .footer {
-	background-color: white;
+	background-color: aqua;
 	color: black;
 }
 
@@ -126,4 +128,6 @@ ul.navmenu li a:active {
 
 header.wrap {
 	padding: 0;
+	background-color: aqua;
+	color: black;
 }
