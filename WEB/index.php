@@ -110,22 +110,22 @@ session_start();
 
     $row = mysql_fetch_row($query);
 
-    if($row[0] == 0){
+    if(($row[0] == 0) && ($row[1] == 0) && ($row[0] == $consumerno) && ($row[1] == $passwd)){
       
       $_SESSION['name']=$consumerno;
       header('location:status.php');
     }
-    else if(($row[0] != NULL) && ($row[1] != NULL)){
-		$_SESSION['name']=$consumerno;
+    else if(($row[0] == $consumerno) && ($row[1] == $passwd)){
+	  $_SESSION['name']=$consumerno;
       header('location:usage.php');
 	}
     else{
-     echo 'You entered an incorrect username or password';
+     echo '<font color="red">You entered an incorrect username or password !</font>';
       echo "<form id=\"form\" name=\"form\" method=\"post\">";
 	
-		echo "<label id=\"user\" for=\"name\">USER ID</label>";
+		echo "<label id=\"user\" for=\"name\">USER ID</label><br />";
 		echo "<input type=\"text\" name=\"name\" id=\"name\" placeholder=\"Username\" required/><br /><br />";
-		echo "<label id=\"pass\" for=\"password\">PASSWORD</label>";
+		echo "<label id=\"pass\" for=\"password\">PASSWORD</label><br />";
 		echo "<input type=\"password\" name=\"password\" id=\"password\" placeholder=\"Password\" required /><br /><br />";
 		echo "<input type=\"submit\" id=\"submit\" name=\"submit\" value=\"LogIn\"/><br />";
 	
@@ -136,9 +136,9 @@ session_start();
   else{
 	  echo "<form id=\"form\" name=\"form\" method=\"post\">";
 	
-		echo "<label id=\"user\" for=\"name\">USER ID</label>";
+		echo "<label id=\"user\" for=\"name\">USER ID</label><br />";
 		echo "<input type=\"text\" name=\"name\" id=\"name\" placeholder=\"Username\" required/><br /><br />";
-		echo "<label id=\"pass\" for=\"password\">PASSWORD</label>";
+		echo "<label id=\"pass\" for=\"password\">PASSWORD</label><br />";
 		echo "<input type=\"password\" name=\"password\" id=\"password\" placeholder=\"Password\" required /><br /><br />";
 		echo "<input type=\"submit\" id=\"submit\" name=\"submit\" value=\"LogIn\"/><br />";
 	
