@@ -6,6 +6,6 @@ Smart Water Meter : Internship Project at ICFOSS
    - Sachin Mathew Jose
    - Josekutty M J
 
-#### Server hosted at :
-   - http://icfossiot.net46.net/
+#### Firefox OS Application : (pending review)
+   - https://marketplace.firefox.com/app/swm/
 
