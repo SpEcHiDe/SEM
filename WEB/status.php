@@ -48,8 +48,6 @@ session_start();
 					else{
 						echo "<li><a href=\"index.php\">Log In</a></li>";
 					}
-                
-                
                 ?>
                 <li><a href="status.php" class="active">Status</a></li>
                
@@ -89,7 +87,7 @@ session_start();
 					$uid = $_SESSION['name'];
 					if($uid){				// admin session id is zero
 						//echo "logged in as " . $uid . "with usage 0 litres";
-						echo "Authentication ERR: Invalid user !";
+						echo "Authentication ERROR !<br /> <sub>Only administartor can see the status of the devices installed.</sub>";
 					}
 					else{
 						//echo "logged in as ADMINISTRATOR. can see all usages";

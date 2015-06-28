@@ -39,6 +39,7 @@
         
         // insert the values into the database
         try {
+			// instantiate connection to database
 			$conn = new PDO("mysql:host=$mysql_host;dbname=$mysql_database", $mysql_user, $mysql_password);
 			// set the PDO error mode to exception
 			$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -52,7 +53,7 @@
 		{
 			echo $sql . "<br>" . $e->getMessage();
 		}
-	
+		// remove the connection
 		$conn = null;
 
 ?>

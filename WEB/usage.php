@@ -72,15 +72,18 @@ session_start();
 			function drawChart() {
 				// Create the data table.
 				var data = new google.visualization.DataTable();
+				
 				data.addColumn('string', 'Date Time Stamp');
-				data.addColumn('number', 'Litres Consumed');
+				
+				data.addColumn('number', 'Litres Consumed');				
 				
 				data.addRows([
 					<?php echo $final_value?>
 				]);
 				
 				var options = {
-					title: 'Usage Statistics'
+					title: 'Usage Statistics',
+					legend: 'none'
 				};
 
 				var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
