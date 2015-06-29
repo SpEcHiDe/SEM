@@ -1,9 +1,11 @@
+
 /*
 Connect Vcc and Gnd of sensor to arduino, and the 
 signal line to arduino digital pin 2.
  */
+ 
 #include <SoftwareSerial.h>
-SoftwareSerial gprsSerial(7, 8); //rx, tx
+SoftwareSerial gprsSerial(10, 11); //rx, tx
 
 byte statusLed    = 13;
 
@@ -13,13 +15,16 @@ byte sensorPin       = 2;  //  ''
 /* The hall-effect flow sensor outputs approximately 4.5 pulses per second per litre/minute of flow.*/
 float calibrationFactor = 4.5;
 
-volatile byte pulseCount;  
+volatile byte pulseCount;
 
 float flowRate;
+
 unsigned int flowMilliLitres;
+
 unsigned long totalMilliLitres;
 
 unsigned long oldTime_flow;
+
 unsigned long oldTime_gprs;
 
 unsigned long consumer_number;
@@ -81,7 +86,7 @@ void setup()
 void loop()
 {
       
-       if((millis() - oldTime_flow) > 1000)    // Only process counters once per second
+       if((millis() - oldTime_flow) > 100)    // Only process counters once per second
       { 
         detachInterrupt(sensorInterrupt);
             
@@ -90,6 +95,7 @@ void loop()
         // that to scale the output. We also apply the calibrationFactor to scale the output
         // based on the number of pulses per second per units of measure (litres/minute in
         // this case) coming from the sensor.
+        
         flowRate = ((1000.0 / (millis() - oldTime_flow)) * pulseCount) / calibrationFactor;
         
         // Note the time this processing pass was executed. Note that because we've
@@ -101,8 +107,8 @@ void loop()
         // Divide the flow rate in litres/minute by 60 to determine how many litres have
         // passed through the sensor in this 1 second interval, then multiply by 1000 to
         // convert to millilitres.
-        flowMilliLitres = (flowRate / 60) * 1000;
-        
+        flowMilliLitres = (flowRate / 60) * 100;
+       
         // Add the millilitres passed in this second to the cumulative total
         totalMilliLitres += flowMilliLitres;
           
@@ -133,7 +139,7 @@ void loop()
         attachInterrupt(sensorInterrupt, pulseCounter, FALLING);
       }
 
-       if((millis() - oldTime_gprs) > 60000)
+       if((millis() - oldTime_gprs) > 30000)
        {
              oldTime_gprs = millis();
               // initialize http service
@@ -148,11 +154,13 @@ void loop()
              gprsSerial.print("&uid=");
              gprsSerial.print(consumer_number);
              gprsSerial.println("\"");
+             
              /*gprsSerial.print("AT+HTTPPARA=\"URL\",\"http://icfossiot.net46.net/save_log.php?uid=");
              gprsSerial.print(consumer_number);
              gprsSerial.print("&value=");
              gprsSerial.print(totalMilliLitres);
              gprsSerial.println("\"");*/
+             
             // gprsSerial.println("AT+HTTPPARA=\"URL\",\"http://icfossiot.net46.net/save_log.php?uid=123456&value=123\"");
              delay(2000);
              toSerial();
