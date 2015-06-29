@@ -58,8 +58,8 @@ session_start();
 				while($r = mysql_fetch_assoc($result)) {
 					$datetime="'" . $r['date'] . "'";
 					$consumption=$r['consumption'];
-										
-					$curValue = $consumption - $prevValue;
+					
+					$curValue = $consumption ;//- $prevValue;
 					$prevValue = $curValue;					
 					
 					$val="[".$datetime.",".$curValue."]";
@@ -75,7 +75,7 @@ session_start();
 				
 				data.addColumn('string', 'Date Time Stamp');
 				
-				data.addColumn('number', 'Litres Consumed');				
+				data.addColumn('number', 'milli Litres Consumed');				
 				
 				data.addRows([
 					<?php echo $final_value?>

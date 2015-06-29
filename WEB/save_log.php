@@ -11,6 +11,9 @@
         $recv = $_GET['value'];
         $consno = $_GET['uid'];
         
+        // flow meter callibration error
+        $recv = $recv - 3;
+        
         // set the time zone for the PHP script
         date_default_timezone_set('Asia/Calcutta');
         $timestampnowdate = date('Y-m-d H:i:s T', time());
