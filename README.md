@@ -15,7 +15,7 @@
 #### Other links :
 
 1.  [Presentation](http://spechide.github.io/SEM/OLD/index.html)
-2.  [Server is active here](http://icfossiot.net46.net)
+2.  [Server is active here *deleted server*](http://icfossiot.net46.net)
 3.  [Review](http://spechide.github.io/SEM/REVW/index.html)
-4.  [Firefox OS Application (pending review)](https://marketplace.firefox.com/app/swm/)
+4.  [Firefox OS Application (not reviewed) *deleted server*](https://marketplace.firefox.com/app/swm/)
 5.  [Final Presentation](http://spechide.github.io/SEM/FINAL/index.html)
